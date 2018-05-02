@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/app/App.js';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { Route } from 'react-router'
@@ -24,8 +24,9 @@ const history = createHistory();
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <Route exact path="/" component={pages.Home}/>
-
+            <App>
+                <Route exact path="/" component={pages.Home}/>
+            </App>
         </ConnectedRouter>
     </Provider>, document.getElementById('root'));
 registerServiceWorker();
